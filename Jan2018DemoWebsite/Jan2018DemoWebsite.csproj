@@ -207,9 +207,6 @@
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Account\Web.config" />
-    <Content Include="ApplicationInsights.config">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\ai.0.22.9-build00167.js" />
     <Content Include="Scripts\ai.0.22.9-build00167.min.js" />
@@ -259,6 +256,7 @@
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
+    <Content Include="WebConnectionStrings.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Account\AddPhoneNumber.aspx.cs">
