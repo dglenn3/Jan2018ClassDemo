@@ -34,5 +34,48 @@ namespace ChinookSystem.BLL
                 return context.Albums.Find(albumid);
             }
         }
+
+        [DataObjectMethod(DataObjectMethodType.Insert, false)]
+        public void Albums_Add(Album item)
+        {
+            using (var context = new ChinookContext())
+            {
+                //stage to be placed on the database
+                context.Albums.Add(item);
+                //cause the staged item to be placed on the database
+                //this is the commit of the using transaction
+                context.SaveChanges();
+            }
+        }
+
+        [DataObjectMethod(DataObjectMethodType.Update, false)]
+        public void Albums_Update(Album item)
+        {
+            using (var context = new ChinookContext())
+            {
+                item.ReleaseLabel = string.IsNullOrEmpty(item.ReleaseLabel) ? null : item.ReleaseLabel;
+                context.Entry(item).State = System.Data.Entity.EntityState.Modified;
+                context.SaveChanges();
+            }
+        }
+
+        [DataObjectMethod(DataObjectMethodType.Delete, false)]
+        public void Albums_Delete(Album item)
+        {
+            Albums_Delete(item.AlbumId);
+        }
+        public void Albums_Delete(int albumid)
+        {
+            using (var context = new ChinookContext())
+            {
+                var existing = context.Albums.Find(albumid);
+                if (existing == null)
+                {
+                    throw new Exception("Album does not exist on file");
+                }
+                context.Albums.Remove(existing);
+                context.SaveChanges();
+            }
+        }
     }
 }
