@@ -29,5 +29,31 @@ namespace Jan2018DemoWebsite.SamplePages
                 }
             }
         }
+
+        protected void AlbumTracks_ItemCommand(object sender, ListViewCommandEventArgs e)
+        {
+            //ListViewCommandEventArgs e contains the value that was attached to the link on the ListView row
+            //The property that you need to access is CommandArgument
+            //It is not a string, it has to be converted
+            CommandArgID.Text = e.CommandArgument.ToString();
+            //Extract a value from a column on the ListView item (row)
+            ColumnID.Text = (e.Item.FindControl("TrackIdLabel") as Label).Text;
+        }
+
+        protected void Totals_Click(object sender, EventArgs e)
+        {
+            double time = 0;
+            double size = 0;
+
+            //use foreach to cycle through the listview
+            foreach(ListViewItem item in this.AlbumTracks.Items)
+            {
+                time += double.Parse((item.FindControl("MillisecondsLabel") as Label).Text);
+                size += double.Parse((item.FindControl("BytesLabel") as Label).Text);
+
+                TracksTime.Text = time.ToString();
+                TracksSize.Text = size.ToString();
+            }
+        }
     }
 }
