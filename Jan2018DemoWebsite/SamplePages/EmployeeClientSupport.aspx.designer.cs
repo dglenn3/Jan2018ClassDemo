@@ -7,27 +7,27 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Jan2018DemoWebsite {
+namespace Jan2018DemoWebsite.SamplePages {
     
     
-    public partial class SiteMaster {
+    public partial class EmployeeClientSupport {
         
         /// <summary>
-        /// navMenu control.
+        /// EmployeeClientList control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Menu navMenu;
+        protected global::System.Web.UI.WebControls.Repeater EmployeeClientList;
         
         /// <summary>
-        /// MainContent control.
+        /// EmployeeClientListODS control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder MainContent;
+        protected global::System.Web.UI.WebControls.ObjectDataSource EmployeeClientListODS;
     }
 }
