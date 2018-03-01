@@ -96,6 +96,7 @@
                                 <asp:MenuItem Text="RepeaterRepeater" NavigateUrl="~/SamplePages/ODSRepeater.aspx"></asp:MenuItem>
                                 <asp:MenuItem Text="RepeaterGVLV" NavigateUrl="~/SamplePages/EmployeeClientSupport.aspx"></asp:MenuItem>
                             </asp:MenuItem>
+                            <asp:MenuItem Text="OLTP" NavigateUrl="~/SamplePages/ManagePlaylist.aspx"></asp:MenuItem>
                             <asp:MenuItem Text="About" NavigateUrl="~/About.aspx"></asp:MenuItem>
                             <asp:MenuItem Text="Contact" NavigateUrl="~/Contact.aspx"></asp:MenuItem>
                         </Items>
