@@ -47,15 +47,29 @@ namespace ChinookSystem.BLL
         }
 
         [DataObjectMethod(DataObjectMethodType.Select, false)]
-        public List<TrackList> List_TracksForPlaylistSelection(string tracksby, int argid)
+        public List<TrackList> List_TracksForPlaylistSelection(string passedparameter, int argid)
         {
             using (var context = new ChinookContext())
             {
-                List<TrackList> results = null;
-
-                //code to go here
-
-                return results;
+                var results = from x in context.Tracks
+                              orderby x.Name
+                              where passedparameter.Equals("Artist") ? x.Album.ArtistId == argid :
+                              passedparameter.Equals("MediaType") ? x.MediaType.MediaTypeId == argid :
+                              passedparameter.Equals("Genre") ? x.Genre.GenreId == argid :
+                              x.AlbumId == argid
+                              select new TrackList
+                              {
+                                  TrackID = x.TrackId,
+                                  Name = x.Name,
+                                  Title = x.Album.Title,
+                                  MediaName = x.MediaType.Name,
+                                  GenreName = x.Genre.Name,
+                                  Composer = x.Composer,
+                                  Milliseconds = x.Milliseconds,
+                                  Bytes = x.Bytes,
+                                  UnitPrice = x.UnitPrice
+                              };
+                return results.ToList();
             }
         }//eom
 
