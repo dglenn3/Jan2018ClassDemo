@@ -7,7 +7,7 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
 <div>
-    <h1>Manage Playlists (UX TRX Sample)</h1>
+    <h1>aManage Playlists (UX TRX Sample)</h1>
 </div>
    <div class="row">
        <div class="col-sm-12">
