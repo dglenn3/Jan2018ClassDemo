@@ -22,10 +22,31 @@ namespace ChinookSystem.BLL
         {
             using (var context = new ChinookContext())
             {
-               
-                //code to go here
 
-                return null;
+                //what would happen if there is no match for the incoming parameter values?
+                //validate that a playlist actually exists
+                var results = (from x in context.Playlists where x.UserName.Equals(username) && x.Name.Equals(playlistname) select x).FirstOrDefault();
+                if (results == null)
+                {
+                    return null;
+                }
+                else
+                {
+                    var theTracks = from x in context.PlaylistTracks
+                                    where x.PlaylistId.Equals(results.PlaylistId)
+                                    orderby x.TrackNumber
+                                    select new UserPlaylistTrack
+                                    {
+                                        TrackID = x.TrackId,
+                                        TrackNumber = x.TrackNumber,
+                                        TrackName = x.Track.Name,
+                                        Milliseconds = x.Track.Milliseconds,
+                                        UnitPrice = x.Track.UnitPrice
+                                    };
+                    return theTracks.ToList();
+                }
+
+                
             }
         }//eom
         public void Add_TrackToPLaylist(string playlistname, string username, int trackid)
@@ -101,8 +122,30 @@ namespace ChinookSystem.BLL
         {
             using (var context = new ChinookContext())
             {
-                //code to go here 
-
+                var exists = (from x in context.Playlists where x.Name.Equals(playlistname) && x.UserName.Equals(username) select x).FirstOrDefault();
+                if(exists == null)
+                {
+                    throw new Exception("Playlist has been removed from the files");
+                }
+                else
+                {
+                    PlaylistTrack moveTrack = (from x in exists.PlaylistTracks where x.TrackId.Equals(trackid) select x).FirstOrDefault();
+                    if(moveTrack == null)
+                    {
+                        throw new Exception("Playlist track has been removed from the files");
+                    }
+                    else
+                    {
+                        if(direction.Equals("up"))
+                        {
+                            //up
+                        }
+                        else
+                        {
+                            //down
+                        }
+                    }
+                }
             }
         }//eom
 
