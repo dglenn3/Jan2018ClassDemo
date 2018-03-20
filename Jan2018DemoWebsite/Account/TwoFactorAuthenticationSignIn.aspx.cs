@@ -9,6 +9,12 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Jan2018DemoWebsite.Models;
 
+
+#region Additional Namespaces
+using AppSecurity.BLL;
+using AppSecurity.Entities;
+#endregion
+
 namespace Jan2018DemoWebsite.Account
 {
     public partial class TwoFactorAuthenticationSignIn : System.Web.UI.Page

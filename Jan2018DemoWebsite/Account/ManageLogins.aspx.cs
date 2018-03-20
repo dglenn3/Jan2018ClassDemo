@@ -7,6 +7,11 @@ using System.Web.UI.WebControls;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 
+
+#region Additional Namespaces
+using AppSecurity.BLL;
+#endregion
+
 namespace Jan2018DemoWebsite.Account
 {
     public partial class ManageLogins : System.Web.UI.Page

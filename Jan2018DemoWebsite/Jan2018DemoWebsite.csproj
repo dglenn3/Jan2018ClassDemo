@@ -514,6 +514,10 @@
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\AppSecurity\AppSecurity.csproj">
+      <Project>{8ec85687-3234-49df-af54-edf71a3140fe}</Project>
+      <Name>AppSecurity</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Chinook.Data\Chinook.Data.csproj">
       <Project>{58ef3b03-a71b-4b3f-887c-c6c12a475915}</Project>
       <Name>Chinook.Data</Name>
