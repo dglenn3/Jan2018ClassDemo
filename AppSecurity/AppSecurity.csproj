@@ -85,18 +85,31 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BLL\ApplicationRoleManager.cs" />
     <Compile Include="BLL\ApplicationUserManager.cs" />
     <Compile Include="BLL\EmailService.cs" />
     <Compile Include="BLL\SmsService.cs" />
     <Compile Include="DAL\ApplicationDbContext.cs" />
     <Compile Include="Entities\ApplicationUser.cs" />
+    <Compile Include="Entities\SecurityRoles.cs" />
+    <Compile Include="POCOs\EmployeeListPOCO.cs" />
+    <Compile Include="POCOs\RegisteredEmployeePOCO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\Chinook.Data\Chinook.Data.csproj">
+      <Project>{58ef3b03-a71b-4b3f-887c-c6c12a475915}</Project>
+      <Name>Chinook.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ChinookSystem\ChinookSystem.csproj">
+      <Project>{374698cf-0d82-42c9-94da-78557e4e7f00}</Project>
+      <Name>ChinookSystem</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
