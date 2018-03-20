@@ -9,6 +9,12 @@ using Microsoft.Owin.Security.Google;
 using Owin;
 using Jan2018DemoWebsite.Models;
 
+#region Additional Namespaces
+using AppSecurity.BLL;
+using AppSecurity.DAL;
+using AppSecurity.Entities;
+#endregion
+
 namespace Jan2018DemoWebsite
 {
     public partial class Startup {
