@@ -1,4 +1,8 @@
-﻿using AppSecurity.Entities;
+﻿using AppSecurity.BLL;
+using AppSecurity.DAL;
+using AppSecurity.Entities;
+using Chinook.Data.POCOs;
+using Microsoft.AspNet.Identity.EntityFramework;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -26,6 +30,25 @@ namespace Jan2018DemoWebsite
                     }
                 }
             }
+        }
+
+        protected void GetUserName_Click(object sender, EventArgs e)
+        {
+            //get the username from security (user)
+            string username = User.Identity.Name;
+            UserDisplayName.Text = username;
+
+            //get the employee information for this username
+            MessageUserControl.TryRun(() =>
+                {
+                    //connect to the application user manager
+                    ApplicationUserManager secmgr = new ApplicationUserManager(
+                        new UserStore<ApplicationUser>(new ApplicationDbContext()));
+                    EmployeeInfo info = secmgr.User_GetEmployee(username);
+                    EmployeeID.Text = info.EmployeeID.ToString();
+                    EmployeeName.Text = info.FullName;
+                }
+            );
         }
     }
 }
