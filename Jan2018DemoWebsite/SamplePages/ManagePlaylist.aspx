@@ -57,7 +57,7 @@
                 <tr style="background-color: #FFFFFF; color: #284775;">
                     <td>
                         <asp:LinkButton ID="AddtoPlaylist" runat="server"
-                             CssClass="btn" CommandArgument='<%# Eval("TrackID") %>'>
+                            CssClass="btn" CommandArgument='<%# Eval("TrackID") %>'>
                             <span aria-hidden="true" class="glyphicon glyphicon-plus">&nbsp;</span>
                         </asp:LinkButton>
                         </td>
